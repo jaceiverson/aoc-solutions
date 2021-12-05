@@ -111,7 +111,7 @@ order, boards = clean_board("./inputs/4.txt")
 board_results = find_last_winning_score(order, boards)
 loser = board_results[list(board_results.keys())[-1]]
 # asnwer
-part_2_asnwer = loser["last_num"] * loser["score"]
+part_2_answer = loser["last_num"] * loser["score"]
 print(f"PART 2: {part_2_answer}")
 
 # to low: 22200
