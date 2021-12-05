@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/2"""
 
-from read import read
+from helper import read
 
 route = read("./inputs/2.txt")
 route = route.strip().split("\n")
@@ -19,7 +19,7 @@ for step in route:
 
 # answer
 part_1_answer = horizontal * depth
-part_1_answer
+print(f"PART 1: {part_1_answer}")
 
 # PART 2
 horizontal = 0
@@ -39,4 +39,4 @@ for step in route:
 
 # answer
 part_2_answer = horizontal * depth
-part_2_answer
+print(f"PART 2: {part_2_answer}")

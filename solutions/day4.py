@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/4"""
 
-from read import read
+from helper import read
 
 
 def clean_board(path):
@@ -66,7 +66,7 @@ order, boards = clean_board("./inputs/4.txt")
 
 # answer
 part_1_answer = find_winning_score(order, boards)
-part_1_answer
+print(f"PART 1: {part_1_answer}")
 
 # to low: 870
 # i was forgetting to multiply the score by the last number called
@@ -112,7 +112,7 @@ board_results = find_last_winning_score(order, boards)
 loser = board_results[list(board_results.keys())[-1]]
 # asnwer
 part_2_asnwer = loser["last_num"] * loser["score"]
-part_2_asnwer
+print(f"PART 2: {part_2_answer}")
 
 # to low: 22200
 # i forgot to remove the bidx when it was marked as a winner

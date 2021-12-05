@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/3"""
 
-from read import read
+from helper import read
 
 report = read("./inputs/3.txt")
 report = report.strip().split("\n")
@@ -26,7 +26,7 @@ epsilon = "".join([str(x + 0) for x in epsilon])
 
 # answer for power
 part_1_answer = int(gamma, 2) * int(epsilon, 2)
-part_1_answer
+print(f"PART 1: {part_1_answer}")
 
 # PART 2
 def filter(key, position, stack, above_half):
@@ -53,7 +53,7 @@ co2 = filter(epsilon, 0, report, False)
 
 # answer for life support
 part_2_answer = int(oxygen, 2) * int(co2, 2)
-part_2_answer
+print(f"PART 2: {part_2_answer}")
 
 # to high: 4172330 (initial try)
 # to low: 3391320 (forgot to return the full tuple (half) was being used from above)

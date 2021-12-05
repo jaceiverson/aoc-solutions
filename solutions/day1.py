@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/1"""
 
-from read import read
+from helper import read
 
 sonar = read("./inputs/1.txt")
 sonar = sonar.strip().split("\n")
@@ -20,7 +20,7 @@ for idx, tick in enumerate(sonar[1:]):
 
 # answer
 part_1_answer = increase
-part_1_answer
+print(f"PART 1: {part_1_answer}")
 
 # PART 2
 increase = 0
@@ -38,4 +38,4 @@ for idx, tick in enumerate(sonar[:-3]):
 
 # answer
 part_2_answer = increase
-part_2_answer
+print(f"PART 2: {part_2_answer}")
