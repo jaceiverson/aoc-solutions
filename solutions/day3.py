@@ -24,9 +24,9 @@ epsilon = [x < half for x in totals]
 gamma = "".join([str(x + 0) for x in gamma])
 epsilon = "".join([str(x + 0) for x in epsilon])
 
-# answer
-power = int(gamma, 2) * int(epsilon, 2)
-power
+# answer for power
+part_1_answer = int(gamma, 2) * int(epsilon, 2)
+part_1_answer
 
 # PART 2
 def filter(key, position, stack, above_half):
@@ -51,8 +51,9 @@ def filter(key, position, stack, above_half):
 oxygen = filter(gamma, 0, report, True)
 co2 = filter(epsilon, 0, report, False)
 
-life_support = int(oxygen, 2) * int(co2, 2)
-life_support
+# answer for life support
+part_2_answer = int(oxygen, 2) * int(co2, 2)
+part_2_answer
 
 # to high: 4172330 (initial try)
 # to low: 3391320 (forgot to return the full tuple (half) was being used from above)

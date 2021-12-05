@@ -18,7 +18,8 @@ for step in route:
         depth += int(detail[1])
 
 # answer
-m = horizontal * depth
+part_1_answer = horizontal * depth
+part_1_answer
 
 # PART 2
 horizontal = 0
@@ -37,4 +38,5 @@ for step in route:
         aim += value
 
 # answer
-m = horizontal * depth
+part_2_answer = horizontal * depth
+part_2_answer

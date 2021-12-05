@@ -19,7 +19,8 @@ for idx, tick in enumerate(sonar[1:]):
         no_change += 1
 
 # answer
-increase
+part_1_answer = increase
+part_1_answer
 
 # PART 2
 increase = 0
@@ -36,4 +37,5 @@ for idx, tick in enumerate(sonar[:-3]):
         no_change += 1
 
 # answer
-increase
+part_2_answer = increase
+part_2_answer
