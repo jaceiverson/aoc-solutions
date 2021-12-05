@@ -26,16 +26,20 @@ class Grid:
         Accepts a tuple of dims (h,w) and
         will add rows/cols to fit new maximums
         """
+        # unpack the elements
         nh, nw = new_dims
         ch, cw = self.dims()
         try:
+            # calulate how many rows/cols to add
             rows_to_add = int(nh) - ch
             cols_to_add = int(nw) - cw
+            # if those are above 0, we will add them in
             if rows_to_add > 0:
                 self._add_rows(rows_to_add)
             if cols_to_add > 0:
                 self._add_cols(cols_to_add)
         except TypeError:
+            # if a type error is thrown, let them know we need to have ints
             raise TypeError("Dimensions need to be ints or able to cast as ints")
 
     def _add_rows(self, num_rows: int) -> None:
@@ -86,6 +90,7 @@ class Grid:
 data = read("./inputs/5.txt")
 data = data.strip().split("\n")
 
+# PART 1
 vents = Grid()
 # loop through instructions to get the coordinates
 for i in data:
@@ -107,3 +112,5 @@ part_1_answer = vents.count_overlap()
 print(f"PART 1: {part_1_answer}")
 # to high 4461
 # i am counting the score correctly, but the large grid isn't being generated correctly
+
+# PART 2
