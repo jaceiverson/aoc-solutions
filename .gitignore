@@ -1,0 +1,7 @@
+# python caches
+__pycache__/
+.DS_Store
+# env
+*aoc-env/
+# problem text files
+inputs/
