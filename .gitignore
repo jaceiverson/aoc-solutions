@@ -3,3 +3,11 @@ __pycache__/
 .DS_Store
 # env
 aoc-env/
+# enviornment variables
+.env
+# packaging
+*.egg*
+# CL command
+newday
+script.txt
+setup_cli.py
