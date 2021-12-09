@@ -10,3 +10,5 @@ aoc-env/
 # CL command
 script.txt
 setup_cli.py
+# inputs/solutions
+/20**/
