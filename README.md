@@ -1,7 +1,6 @@
 # AOC Util for Python
 A library to help create files and pull inputs for the Advent of Code. Can be used to generate previous years input/files as well.
 
-
 # AOC Star Summary
 | Year   |   Stars |   Completion % |
 |--------|---------|----------------|
@@ -127,15 +126,20 @@ You can also follow these steps to make a Unix Command name "newday". This will 
  - export PATH=$PATH":$HOME/bin"
 
 ## File Structure
-When you clone/fork and use this repo you will have the following file structure
+When you clone/fork and set up this repo for use, you should have the following file structure
 ```
 advent_of_code/
 └── src/
     └── helper/
         ├── __init__.py
         └── helper.py
+        └── file_creation.py
+        └── readme.py
 └── 20**/
     └── input/
     └── solutions/
 └── newday
+└── update-readme
+└── .env
+└── venv
 ```
