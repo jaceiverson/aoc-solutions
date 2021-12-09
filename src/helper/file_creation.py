@@ -2,9 +2,11 @@
 from argparse import ArgumentParser
 from pathlib import Path
 from datetime import date
+
 # load in the cookie session
 from os import environ
 from dotenv import load_dotenv
+
 # HTTP Requests
 from requests import get
 from requests.models import HTTPError
@@ -12,18 +14,18 @@ from requests.models import HTTPError
 load_dotenv()
 
 
-def get_input(day: int, year:int) -> None:
+def get_input(day: int, year: int) -> None:
     """
     Uses your session cookie (to get your specific login) to pull your
-    Puzzle Inputs. You can find session cookie 
-    in the developer portal of your browswer. 
+    Puzzle Inputs. You can find session cookie
+    in the developer portal of your browswer.
 
-    For Chrome "Application" > "Storage" > "Cookies" > 
+    For Chrome "Application" > "Storage" > "Cookies" >
     Find the session and retreave the value.
 
     Accepts a day, saves the input if it doesn't exist already
     Will create "./inputs" folder if it doesn't exist
-    
+
     Note:
         This does not create the test input (from the question),
         you will have to create that file yourself
@@ -124,20 +126,19 @@ def newday():
     )
     args = parser.parse_args()
     # CHECK VALUES to make sure they are in range
-    if args.day not in range(1,26):
+    if args.day not in range(1, 26):
         raise ValueError(f"Day needs to be in range (1-25)")
-    if args.year not in range(2015,year+1):
+    if args.year not in range(2015, year + 1):
         raise ValueError(f"Year needs to be in range {range(2015,year+1)}")
 
     print(args)
     print("CREATING PYTHON FILE")
-    create_file(args.day,args.year)
+    create_file(args.day, args.year)
     if args.input:
         print("CREATING INPUT FILE")
-        get_input(args.day,args.year)
+        get_input(args.day, args.year)
     print("PROCESS COMPLETE")
 
 
 if __name__ == "__main__":
     newday()
-    
