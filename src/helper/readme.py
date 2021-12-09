@@ -45,19 +45,21 @@ def update_readme(new_table:Optional[str] = None) -> None:
     Updates the README.md file with your current status in the AOC
     Accepts a markdown style table from aoc_stars()
     """
+    # if no table passed in, will create one from aoc_stars() 
     if new_table is None:
         new_table = aoc_stars()
-    # GET MD file
+    # GET current README file
     with open("README.md","r") as f:
         md = f.read()
-    # remove current table 
-    # between Summary and Requests
-    new = md.split("##")
+    # remove current table (Only Element under AOC Star Summary)
+    new = md.split("#")
     summary_idx = [idx for idx,x in enumerate(new) if "AOC Star Summary" in x][0]
-    new[1] = f" AOC Star Summary\n{new_table}\n\n"
+    # add the updated table in, replacing the old
+    new[summary_idx] = f" AOC Star Summary\n{new_table}\n\n"
 
+    # write back the new README with updated table
     with open("README.md","w") as f:
-        f.write("##".join(new))
+        f.write("#".join(new))
 
     print("README.md Updated")
 
