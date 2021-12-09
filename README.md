@@ -46,6 +46,10 @@ pip3 install virtualenv
 ```
 python3 -m virtualenv venv
 ```
+## activate the enviornment
+```
+source venv/bin/activate
+```
 ### install all the necessary packages
 ```
 pip install requirements.txt -r
