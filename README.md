@@ -46,7 +46,7 @@ pip3 install virtualenv
 ```
 python3 -m virtualenv venv
 ```
-## activate the enviornment
+### activate the enviornment
 ```
 source venv/bin/activate
 ```
