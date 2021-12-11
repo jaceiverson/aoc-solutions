@@ -8,20 +8,20 @@ data = read("./2021/inputs/10.txt")
 # TEST INPUT
 # data = read("./2021/inputs/10-test.txt")
 # PARSE INPUT
-data = data.strip().split('\n')
+data = data.strip().split("\n")
 
-POINTS = {")":3,"]":57,"}":1197,">":25137}
-COMPLETION_POINTS = {")":1,"]":2,"}":3,">":4}
-CHUNKS = {"(":")","[":"]","{":"}","<":">"}
-OPEN = ['(', '[', '{', '<']
-CLOSE = [')', ']', '}', '>']
+POINTS = {")": 3, "]": 57, "}": 1197, ">": 25137}
+COMPLETION_POINTS = {")": 1, "]": 2, "}": 3, ">": 4}
+CHUNKS = {"(": ")", "[": "]", "{": "}", "<": ">"}
+OPEN = ["(", "[", "{", "<"]
+CLOSE = [")", "]", "}", ">"]
 
 errors = {}
 auto_complete = {}
-for idx,row in enumerate(data):
+for idx, row in enumerate(data):
     input = []
     incomplete = True
-    for c_idx,col in enumerate(row):
+    for c_idx, col in enumerate(row):
         if col in OPEN:
             input.append(col)
         elif col in CLOSE:
@@ -32,7 +32,12 @@ for idx,row in enumerate(data):
                 # remove that as it as found its close
                 input.pop()
             else:
-                errors[idx] = {"ROW":row,"INDEX":c_idx,"ERROR":f"Expected {CLOSE[OPEN.index(input[-1])]}, found {col}","SCORE":POINTS[col]}
+                errors[idx] = {
+                    "ROW": row,
+                    "INDEX": c_idx,
+                    "ERROR": f"Expected {CLOSE[OPEN.index(input[-1])]}, found {col}",
+                    "SCORE": POINTS[col],
+                }
                 incomplete = False
                 # get out of the internal loop (row is corrupt)
                 break
@@ -47,7 +52,7 @@ print(f"PART 1: {part_1_answer}")
 
 # GET AUTO COMPLETE
 scores = []
-for row,chars in auto_complete.items():
+for row, chars in auto_complete.items():
     row_score = 0
     for c in chars:
         row_score = row_score * 5

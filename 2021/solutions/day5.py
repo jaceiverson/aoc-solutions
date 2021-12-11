@@ -114,6 +114,6 @@ print(f"PART 1: {part_1_answer}")
 # to high 4461
 # i am counting the score correctly, but the large grid isn't being generated correctly
 # I can get the correct score with the small grid
-# tried 4460 just to check ;) 
+# tried 4460 just to check ;)
 
 # PART 2

@@ -31,7 +31,8 @@ print(f"PART 1: {part_1_answer}")
 # then we can extrapilate how many of the ones that are created will create and so forth
 # the brute force is way too slow, even for the 5 seed numbers
 
-def offspring(start_value,years):
+
+def offspring(start_value, years):
     """
     Given a fish number (start_value) and the number of years left
     Calculates the direct offspring count (no grandfish) of that specific fish
@@ -42,9 +43,10 @@ def offspring(start_value,years):
     remaining_years = years - (start_value + 1)
     # every 7 generations another is created
     # except the first time (9 generations)
-    return (remaining_years // 7) + 1 
+    return (remaining_years // 7) + 1
 
-offspring(8,8,False)
+
+offspring(8, 8, False)
 
 part_2_answer = len(data)
 print(f"PART 2: {part_2_answer}")
