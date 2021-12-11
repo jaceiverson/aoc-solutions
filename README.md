@@ -4,14 +4,14 @@ A library to help create files and pull inputs for the Advent of Code. Can be us
 # AOC Star Summary
 | Year   |   Stars |   Completion % |
 |--------|---------|----------------|
-| [2021] |      12 |          24    |
+| [2021] |      15 |          30    |
 | [2020] |      14 |          28    |
 | [2019] |         |           0    |
 | [2018] |         |           0    |
 | [2017] |         |           0    |
 | [2016] |         |           0    |
 | [2015] |         |           0    |
-| TOTAL  |      26 |           7.43 |
+| TOTAL  |      29 |           8.29 |
 
 # Automatic Summary Update 
 You can automatically update your summary table like the one above. There are functions in the local helper modual that 

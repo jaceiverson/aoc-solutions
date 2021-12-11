@@ -2,6 +2,13 @@
 
 from helper import read
 
+data = read("./2021/inputs/5.txt")
+
+# testing file
+data = read("./2021/inputs/5-test.txt")
+
+data = data.strip().split("\n")
+
 
 class Grid:
     def __init__(self) -> None:
@@ -84,12 +91,6 @@ class Grid:
         return len([y for x in self.grid for y in x if y >= overlap_num])
 
 
-# testing file
-# data = read("./inputs/5-test.txt")
-
-data = read("./inputs/5.txt")
-data = data.strip().split("\n")
-
 # PART 1
 vents = Grid()
 # loop through instructions to get the coordinates
@@ -112,5 +113,7 @@ part_1_answer = vents.count_overlap()
 print(f"PART 1: {part_1_answer}")
 # to high 4461
 # i am counting the score correctly, but the large grid isn't being generated correctly
+# I can get the correct score with the small grid
+# tried 4460 just to check ;) 
 
 # PART 2
