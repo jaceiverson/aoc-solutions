@@ -5,12 +5,12 @@ challenges. This was created using my <a href=https://github.com/jaceiverson/aoc
 # AOC Star Summary
 | Year   |   Stars |   Completion % |
 |--------|---------|----------------|
-| [2021] |      18 |          36    |
+| [2021] |      20 |          40    |
 | [2020] |      14 |          28    |
 | [2019] |         |           0    |
 | [2018] |         |           0    |
 | [2017] |         |           0    |
 | [2016] |         |           0    |
 | [2015] |         |           0    |
-| TOTAL  |      32 |           9.14 |
+| TOTAL  |      34 |           9.71 |
 
