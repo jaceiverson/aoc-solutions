@@ -78,10 +78,10 @@ def create_file(day: int, year: int) -> None:
         f'# data = read("./{year}/inputs/{day}-test.txt")\n'
         "# PARSE INPUT\n\n"
         "# PART 1\n\n"
-        "part_1_answer = None"
+        "part_1_answer = None\n"
         'print(f"PART 1: {part_1_answer}")\n\n'
         "# PART 2\n\n"
-        "part_2_answer = None"
+        "part_2_answer = None\n"
         'print(f"PART 2: {part_2_answer}")\n'
     )
 
