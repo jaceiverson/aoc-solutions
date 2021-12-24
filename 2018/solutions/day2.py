@@ -8,7 +8,7 @@ data = read("./2018/inputs/2.txt")
 # TEST INPUT
 # data = read("./2018/inputs/2-test.txt")
 # PARSE INPUT
-data = data.strip().split('\n')
+data = data.strip().split("\n")
 # PART 1
 twos = 0
 threes = 0
@@ -17,9 +17,9 @@ for label in data:
     if 2 in c.values():
         twos += 1
     if 3 in c.values():
-        threes +=1
+        threes += 1
 
-part_1_answer = twos*threes
+part_1_answer = twos * threes
 print(f"PART 1: {part_1_answer}")
 
 # PART 2
@@ -28,7 +28,7 @@ def find_similar(data):
         for comp_label in data:
             if label != comp_label:
                 difference_count = 0
-                for idx,letter in enumerate(label):
+                for idx, letter in enumerate(label):
                     if letter != comp_label[idx]:
                         difference_count += 1
                         difference_index = idx
@@ -36,7 +36,7 @@ def find_similar(data):
                         break
 
                 if difference_count == 1:
-                    same = label[:difference_index] + label[difference_index+1:]
+                    same = label[:difference_index] + label[difference_index + 1 :]
                     return same
     return None
 

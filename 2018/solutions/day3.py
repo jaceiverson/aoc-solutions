@@ -8,7 +8,7 @@ data = read("./2018/inputs/3.txt")
 # TEST INPUT
 # data = read("./2018/inputs/3-test.txt")
 # PARSE INPUT
-data = data.strip().split('\n')
+data = data.strip().split("\n")
 
 
 class Grid:
@@ -93,37 +93,39 @@ class Grid:
         """
         return len([y for x in self.grid for y in x if y >= overlap_num])
 
+
 # PART 1
 fabric = Grid()
-fabric.new_dims((1000,1000))
+fabric.new_dims((1000, 1000))
 for line in data:
-    _id,_,cords,size = line.split()
-    x,y = [int(x) for x in cords.strip(':').split(',')]
-    w,h = [int(x) for x in size.split('x')]
+    _id, _, cords, size = line.split()
+    x, y = [int(x) for x in cords.strip(":").split(",")]
+    w, h = [int(x) for x in size.split("x")]
     # increase value for the given dimensions
-    for row in range(x,x+w):
-        for col in range(y,y+h):
+    for row in range(x, x + w):
+        for col in range(y, y + h):
             fabric.grid[col][row] += 1
 
-part_1_answer = fabric.count_overlap()     
+part_1_answer = fabric.count_overlap()
 print(f"PART 1: {part_1_answer}")
 # TO HIGH -> 143513
 
 # PART 2
 def find_unique_fabric(fabric):
     for line in data:
-        _id,_,cords,size = line.split()
-        x,y = [int(x) for x in cords.strip(':').split(',')]
-        w,h = [int(x) for x in size.split('x')]
+        _id, _, cords, size = line.split()
+        x, y = [int(x) for x in cords.strip(":").split(",")]
+        w, h = [int(x) for x in size.split("x")]
         overlap_count = 0
         # increase value for the given dimensions
-        for row in range(x,x+w):
-            for col in range(y,y+h):
+        for row in range(x, x + w):
+            for col in range(y, y + h):
                 if fabric.grid[col][row] > 1:
-                    overlap_count += 1 
+                    overlap_count += 1
 
         if overlap_count == 0:
             return _id
+
 
 part_2_answer = find_unique_fabric(fabric)
 print(f"PART 2: {part_2_answer}")
