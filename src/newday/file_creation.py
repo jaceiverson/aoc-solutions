@@ -129,7 +129,7 @@ def newday():
     args = parser.parse_args()
     # CHECK VALUES to make sure they are in range
     if args.day not in range(1, 26):
-        raise ValueError(f"Day needs to be in range (1-25)")
+        raise ValueError("Day needs to be in range (1-25)")
     if args.year not in range(2015, year + 1):
         raise ValueError(f"Year needs to be in range {range(2015,year+1)}")
 
