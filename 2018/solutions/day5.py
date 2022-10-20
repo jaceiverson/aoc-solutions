@@ -10,12 +10,15 @@ data = read("./2018/inputs/5.txt")
 # PARSE INPUT
 data = data.strip()
 
+
 def cause_reactions(data):
     idx = 0
     while True:
-        first, second = data[idx:idx+2]
+        first, second = data[idx : idx + 2]
         # this statement finds characters that are the same case
-        if (first.islower() and second.islower()) or (first.isupper() and second.isupper()):
+        if (first.islower() and second.islower()) or (
+            first.isupper() and second.isupper()
+        ):
             idx += 1
         # this means the cases are different
         # lets convert them both to lower and check if they are the same
@@ -23,12 +26,13 @@ def cause_reactions(data):
             idx += 1
         # if we reach this block, the cases are different, and the letters match
         else:
-            data = data.replace(first+second,"",1)
+            data = data.replace(first + second, "", 1)
             idx -= 1
-            idx = max(idx,0)
+            idx = max(idx, 0)
 
-        if idx >= len(data)-1:
+        if idx >= len(data) - 1:
             return data
+
 
 # PART 1
 part_1_answer = len(cause_reactions(data.strip()))
@@ -40,7 +44,7 @@ c = Counter(data.lower())
 min_length = len(data)
 magic_letter = None
 for letter in c:
-    reactions = cause_reactions(data.replace(letter,'').replace(letter.upper(),''))
+    reactions = cause_reactions(data.replace(letter, "").replace(letter.upper(), ""))
     if len(reactions) < min_length:
         min_length = len(reactions)
         magic_letter = letter

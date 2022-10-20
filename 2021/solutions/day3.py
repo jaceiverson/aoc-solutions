@@ -26,11 +26,11 @@ def find_totals(report):
 # keep a list (len of each line) of totals (1s)
 # if above half it is the most common bit
 totals, half = find_totals(report)
-# most common bit 
+# most common bit
 gamma = [x > half for x in totals]
 # least common bit
 epsilon = [x < half for x in totals]
-# make each into a binary number 
+# make each into a binary number
 gamma = "".join([str(x + 0) for x in gamma])
 epsilon = "".join([str(x + 0) for x in epsilon])
 
