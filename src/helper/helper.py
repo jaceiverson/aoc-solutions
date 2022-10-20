@@ -8,6 +8,19 @@ def read(path: str) -> str:
         rules = f.read()
     return rules
 
+
+def chunks(l, n=5):
+    """
+    params:
+        l: taks in a list (or list like object)
+        n: takes an int: default = 5 this is how big the smaller
+            chunks will be
+    returns:
+        a list of lists with the smaller lists being size n
+    """
+    return [l[i : i + n] for i in range(0, len(l), n)]
+
+
 """
 WRAPPERS
 """
