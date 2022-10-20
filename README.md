@@ -12,6 +12,6 @@ challenges. This was created using my <a href=https://github.com/jaceiverson/aoc
 | [2018] |      10 |          20    |
 | [2017] |         |           0    |
 | [2016] |         |           0    |
-| [2015] |         |           0    |
-| TOTAL  |      55 |          13.75 |
+| [2015] |      18 |          36    |
+| TOTAL  |      73 |          18.25 |
 
