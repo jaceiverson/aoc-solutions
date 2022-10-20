@@ -9,9 +9,9 @@ challenges. This was created using my <a href=https://github.com/jaceiverson/aoc
 | [2021] |      22 |          44    |
 | [2020] |      14 |          28    |
 | [2019] |       9 |          18    |
-| [2018] |       6 |          12    |
+| [2018] |      10 |          20    |
 | [2017] |         |           0    |
 | [2016] |         |           0    |
 | [2015] |         |           0    |
-| TOTAL  |      51 |          12.75 |
+| TOTAL  |      55 |          13.75 |
 
