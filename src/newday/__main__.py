@@ -1,2 +1,2 @@
-from newday.file_creation import newday
+from .file_creation import newday
 newday()
