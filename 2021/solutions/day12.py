@@ -1,7 +1,6 @@
 """https://adventofcode.com/2021/day/12"""
 
 from helper import read
-from dataclasses import dataclass
 
 # READ INPUT
 data = read("./2021/inputs/12.txt")
@@ -10,35 +9,18 @@ data = read("./2021/inputs/12-test.txt")
 # PARSE INPUT
 data = data.strip().split("\n")
 
-NODES = {}
-
-
-@dataclass
-class PathPoint:
-    name: str
-    next: list
-    big: bool
-    past: list = None
-    visited: bool = False
-    is_start: bool = False
-    is_end: bool = False
-
-
-for node in data:
-    start = node.split("-")[0]
-    end = node.split("-")[1]
-    is_big_cave = (len(start) == 1) and (not start.islower())
-    is_start = start == "start"
-    is_end = end == "end"
 
 C = {}
 for node in data:
-    start = node.split("-")[0]
-    end = node.split("-")[1]
+    start, end = node.split("-")
     if C.get(start):
         C[start].append(end)
     else:
         C[start] = [end]
+    if C.get(end):
+        C[end].append(start)
+    else:
+        C[end] = [start]
 
 """
 LOGIC
@@ -49,6 +31,28 @@ if the lower cave has no children, cannot path that way
 leave from start, finish with end
 
 """
+# https://topaz.github.io/paste/#XQAAAQAqAwAAAAAAAAAyGUj/TuRfOI7nwo+gbNPmE8BAa64yJre1LXowmkvToIIzGJwTLCwJ9fWHR92o9Pr7IoNBSXMfZdes5kjMoCgiBdmtAPxECRLmCC7dQl5tIwFkKbAkt0itH5L6wgfDy83JzAdaNjh68Ip4ccx8gPeib0SymvtKDyCPuK3JDtbPYYxe4E37DUHSBJSXeUgSjJqlhLMBmDn0MByD9I3+fIv31Q2lFWOc75Zl0CHnTi0IzmJ5AupkjcOIXLjQWE7yCRg69lA7PicQZUYoxfIOBQzVQN0UBx3yOZ2vK38G89AhJOnwtP3CtV5HOU9lI14c+vZ+F7bOkkqR+bwgj2J4w0d/xtoidFjdnj4v9fMeN0eFo+h6YFzAZ3rRbDHXdzN8JownTCCVtwdKz53jCYj/JsqkAA==
+def countPaths(currentCave, noEntry):
+    if currentCave == "end":
+        # we have arrived at the end of the cave
+        return 1
+    paths = C.get(currentCave)[:]
+    paths = [path for path in paths if path not in noEntry]
+
+    # there is no valid path
+    if not paths:
+        return 0
+    # if keep track of the caves we can't enter
+    if currentCave[0] != currentCave[0].upper():
+        noEntry = noEntry + [currentCave]
+
+    print("Current Cave:", currentCave)
+    print("Paths:", paths)
+    print("Do not Enter:", noEntry)
+    return sum(countPaths(path, noEntry) for path in paths)
+
+
+print(countPaths("start", []))
 
 
 def path(path_options, current_path):

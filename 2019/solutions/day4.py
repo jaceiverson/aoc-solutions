@@ -39,3 +39,33 @@ for num in range(start, stop + 1):
 part_2_answer = len(possible_solutions_two)
 print(f"PART 2: {part_2_answer}")
 # TOO LOW -> 724
+
+
+def get_adjacent_value_count(num: str):
+    a = []
+    adjacent = 0
+    for idx, c in enumerate(num[:-1], 1):
+        adjacent += 1
+        if c != num[idx]:
+            a.append(adjacent)
+            adjacent = 0
+    if c == num[-1]:
+        adjacent += 1
+        a.append(adjacent)
+    else:
+        a.extend((adjacent, 1))
+    return a
+
+
+possible_solutions_two = []
+for num in range(start, stop + 1):
+    zero, one, two, three, four, five = [int(x) for x in list(str(num))]
+    # check increasing numbers & at least 2 adjacent
+    if zero <= one <= two <= three <= four <= five and any(
+        x == 2 for x in get_adjacent_value_count(str(num))
+    ):
+        possible_solutions_two.append(num)
+
+
+part_2_answer = len(possible_solutions_two)
+print(f"PART 2: {part_2_answer}")
