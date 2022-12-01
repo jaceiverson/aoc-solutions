@@ -40,17 +40,18 @@ def get_input(day: int, year: int) -> None:
         r = get(
             f"https://adventofcode.com/{year}/day/{day}/input",
             cookies={"session": environ["COOKIE_SESSION"]},
+            headers={
+                "User-agent": "github.com/jaceiverson/aoc-util by iverson.jace@gmail.com"
+            },
         )
-        # save file if status 200
-        if r.status_code == 200:
-            with open(file_path, "w") as f:
-                f.write(r.text)
-            print(f"INPUT SAVED: {file_path}")
-        else:
+        if not r.ok:
             raise HTTPError(
                 f"Did not get status 200. STATUS: {r.status_code}, "
                 "verify session cookie is correct"
             )
+        with open(file_path, "w") as f:
+            f.write(r.text)
+        print(f"INPUT SAVED: {file_path}")
     else:
         print(f"{file_path} already exists. Will not overwrite")
 
