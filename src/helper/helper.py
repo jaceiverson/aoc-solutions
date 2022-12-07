@@ -1,15 +1,16 @@
 """Helper functions to automate AOC"""
+
+import pathlib
+from typing import Any
 from time import perf_counter_ns
 
 
 def read(path: str) -> str:
     """General Purpose Read a Text file and Return"""
-    with open(path) as f:
-        rules = f.read()
-    return rules
+    return pathlib.Path(path).read_text()
 
 
-def chunks(l, n=5):
+def chunks(l: list, n: int = 5) -> list[list[Any]]:
     """
     params:
         l: taks in a list (or list like object)

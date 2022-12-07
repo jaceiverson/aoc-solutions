@@ -1,25 +1,18 @@
 """Used to automatically update README to reflect stars earned"""
-import os
-from typing import Optional
 
-import requests as r
-from dotenv import load_dotenv
+from typing import Optional
+from datetime import date
 from bs4 import BeautifulSoup
 import pandas as pd
 
+from helper.aoc_requests import get_aoc_page
 
-load_dotenv()
 
-
-def aoc_stars() -> str:
+def get_aoc_stars() -> str:
     """Scrapes the AOC Page retrives star information to display in README"""
 
     # Send the URL Request with Cookie to get HTML
-    url = "https://adventofcode.com/2021/events"
-    response = r.get(
-        url,
-        cookies={"session": os.environ["COOKIE_SESSION"]},
-    )
+    response = get_aoc_page(f"https://adventofcode.com/{date.today().year-1}/events")
     soup = BeautifulSoup(response.text, "html.parser")
     # Total Stars
     total_stars = soup.find(string="Total stars: ")
@@ -57,7 +50,7 @@ def update_readme(new_table: Optional[str] = None) -> None:
     """
     # if no table passed in, will create one from aoc_stars()
     if new_table is None:
-        new_table = aoc_stars()
+        new_table = get_aoc_stars()
     # GET current README file
     with open("README.md", "r") as f:
         md = f.read()

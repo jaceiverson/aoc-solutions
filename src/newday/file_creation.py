@@ -2,19 +2,35 @@
 from argparse import ArgumentParser
 from pathlib import Path
 from datetime import date
-
-# load in the cookie session
-from os import environ
-from dotenv import load_dotenv
+import warnings
 
 # HTTP Requests
-from requests import get
 from requests.models import HTTPError
 
-load_dotenv()
+# local module to request pages from AOC
+from helper.aoc_requests import get_aoc_page
 
 
-def get_input(day: int, year: int) -> None:
+def is_valid_date(day: int, year: int) -> bool:
+    """
+    checks to validate the passed in day is
+    less than or equal to today's date in order to
+    not send any unnecessary requests
+
+    Args:
+        day (int): day of requested input
+        year (int): year of requested input
+
+    Returns:
+        bool:
+            True -> requested input can be queried,
+            False -> requested input is in the future and cannot be accessed
+    """
+    today_date = date.today()
+    return year < today_date.year or (year == today_date.year and day <= today_date.day)
+
+
+def create_input_file(day: int, year: int) -> None:
     """
     Uses your session cookie (to get your specific login) to pull your
     Puzzle Inputs. You can find session cookie
@@ -30,33 +46,37 @@ def get_input(day: int, year: int) -> None:
         This does not create the test input (from the question),
         you will have to create that file yourself
     """
-    file_path = Path(f"./{year}/inputs/{day}.txt")
-    # if the folder doesn't exists, create it
-    if not file_path.parent.exists():
-        file_path.parent.mkdir(parents=True)
-    # if the file doesn't exists, create it and save the request data
-    if not file_path.exists():
-        # HTML request
-        r = get(
-            f"https://adventofcode.com/{year}/day/{day}/input",
-            cookies={"session": environ["COOKIE_SESSION"]},
-            headers={
-                "User-agent": "github.com/jaceiverson/aoc-util by iverson.jace@gmail.com"
-            },
-        )
-        if not r.ok:
-            raise HTTPError(
-                f"Did not get status 200. STATUS: {r.status_code}, "
-                "verify session cookie is correct"
-            )
-        with open(file_path, "w") as f:
-            f.write(r.text)
-        print(f"INPUT SAVED: {file_path}")
+    if is_valid_date(day, year):
+        file_path = Path(f"./{year}/inputs/{day}.txt")
+        # if the folder doesn't exists, create it
+        if not file_path.parent.exists():
+            file_path.parent.mkdir(parents=True)
+        # if the file doesn't exists, create it and save the request data
+        if not file_path.exists():
+            # HTTP request
+            r = get_aoc_page(f"https://adventofcode.com/{year}/day/{day}/input")
+            if not r.ok:
+                raise HTTPError(
+                    f"Did not get status 200. STATUS: {r.status_code}, "
+                    "verify session cookie is correct"
+                )
+            with open(file_path, "w") as f:
+                f.write(r.text)
+            print(f"INPUT SAVED: {file_path}")
+        else:
+            print(f"{file_path} already exists. Will not overwrite")
     else:
-        print(f"{file_path} already exists. Will not overwrite")
+        days_left = (year - date.today().year) * 365 + day - date.today().day
+        warnings.warn_explicit(
+            f"\nInput is not ready. Please request a valid day, or wait {days_left} days for your input to be ready.",
+            UserWarning,
+            f"src/file_creation.py : get_input(day={day},year={year}) : line ",
+            50,
+            "newday",
+        )
 
 
-def create_file(day: int, year: int) -> None:
+def create_python_file(day: int, year: int) -> None:
     """
     Will create a python file will all the lines of code I normally use
     Also will create the "./solutions" directory if it doesn't exists
@@ -70,21 +90,12 @@ def create_file(day: int, year: int) -> None:
     TO RUN from the main directory in terminal:
         $ python solutions/helper.py {day int to create}
     """
-    file_text = (
-        f'"""https://adventofcode.com/{year}/day/{day}"""\n\n'
-        "from helper import read\n\n"
-        "# READ INPUT\n"
-        f'data = read("./{year}/inputs/{day}.txt")\n'
-        "# TEST INPUT\n"
-        f'# data = read("./{year}/inputs/{day}-test.txt")\n'
-        "# PARSE INPUT\n\n"
-        "# PART 1\n\n"
-        "part_1_answer = None\n"
-        'print(f"PART 1: {part_1_answer}")\n\n'
-        "# PART 2\n\n"
-        "part_2_answer = None\n"
-        'print(f"PART 2: {part_2_answer}")\n'
-    )
+    # read in the tempalte file
+    with open("src/newday/file_template.py", "r") as f:
+        file_text = f.read()
+
+    # alter the template to include the actual year and day
+    file_text = file_text.replace("{year}", str(year)).replace("{day}", str(day))
 
     # creates the python file in solutions
     file_path = Path(f"./{year}/solutions/day{day}.py")
@@ -93,12 +104,12 @@ def create_file(day: int, year: int) -> None:
     if not file_path.exists():
         with open(file_path, "a") as f:
             f.write(file_text)
-        print(f"TEMPLATE CREATED: {file_path}")
+        print(f"FILE CREATED FROM TEMPLATE: {file_path}")
     else:
         print(f"{file_path} already exists. Will not overwrite")
 
 
-def newday():
+def newday() -> None:
     today = date.today().day
     year = date.today().year
     parser = ArgumentParser(description="Create AOC Python Files from template.")
@@ -136,10 +147,10 @@ def newday():
 
     print(args)
     print("CREATING PYTHON FILE")
-    create_file(args.day, args.year)
+    create_python_file(args.day, args.year)
     if args.input:
         print("CREATING INPUT FILE")
-        get_input(args.day, args.year)
+        create_input_file(args.day, args.year)
     print("PROCESS COMPLETE")
 
 
