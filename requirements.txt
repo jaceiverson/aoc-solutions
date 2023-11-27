@@ -1,1 +1,1 @@
-git+https://github.com/jaceiverson/aoc-util.git@new-scripts
+git+https://github.com/jaceiverson/aoc-util.git
