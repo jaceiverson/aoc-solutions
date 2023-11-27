@@ -3,6 +3,8 @@ __pycache__/
 .DS_Store
 # env
 aoc-env/
+venv/
+
 # enviornment variables
 .env
 # packaging
