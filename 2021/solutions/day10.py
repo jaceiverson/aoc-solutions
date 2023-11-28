@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/10"""
 
-from helper import read
+from aoc_util import read
 from statistics import median
 
 # READ INPUT

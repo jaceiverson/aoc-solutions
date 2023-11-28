@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/3"""
 
-from helper import read
+from aoc_util import read
 
 report = read("./inputs/3.txt")
 report = report.strip().split("\n")

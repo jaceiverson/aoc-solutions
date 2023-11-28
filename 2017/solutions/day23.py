@@ -1,6 +1,6 @@
 """https://adventofcode.com/2017/day/23"""
 
-from helper import read
+from aoc_util import read
 from string import ascii_lowercase as alphabet
 
 # READ INPUT

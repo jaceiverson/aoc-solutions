@@ -1,6 +1,6 @@
 """https://adventofcode.com/2019/day/6"""
 
-from helper import read
+from aoc_util import read
 
 # READ INPUT
 data = read("./2019/inputs/6.txt")

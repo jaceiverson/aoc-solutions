@@ -1,7 +1,7 @@
 """https://adventofcode.com/2018/day/4"""
 
 
-from helper import read
+from aoc_util import read
 import datetime as dt
 import re
 

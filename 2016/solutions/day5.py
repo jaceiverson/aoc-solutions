@@ -1,7 +1,7 @@
 """https://adventofcode.com/2016/day/5"""
 
 
-from helper import read
+from aoc_util import read
 from hashlib import md5
 
 # READ INPUT

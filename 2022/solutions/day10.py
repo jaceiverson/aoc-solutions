@@ -1,7 +1,7 @@
 """https://adventofcode.com/2022/day/10"""
 
 
-from helper import read
+from aoc_util import read
 
 # READ INPUT
 data = read("./2022/inputs/10.txt").strip().split("\n")

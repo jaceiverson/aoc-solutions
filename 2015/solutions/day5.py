@@ -1,6 +1,6 @@
 """https://adventofcode.com/2015/day/5"""
 
-from helper import read, chunks
+from aoc_util import read, chunks
 
 # READ INPUT
 data = read("./2015/inputs/5.txt").strip().split("\n")

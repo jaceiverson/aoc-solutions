@@ -1,7 +1,7 @@
 """https://adventofcode.com/2018/day/3"""
 
 from typing import overload
-from helper import read
+from aoc_util import read
 
 # READ INPUT
 data = read("./2018/inputs/3.txt")

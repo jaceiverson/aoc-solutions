@@ -1,6 +1,6 @@
 """https://adventofcode.com/2015/day/8"""
 
-from helper import read
+from aoc_util import read
 import re
 
 # READ INPUT

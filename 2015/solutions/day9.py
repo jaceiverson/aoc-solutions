@@ -1,6 +1,6 @@
 """https://adventofcode.com/2015/day/9"""
 
-from helper import read
+from aoc_util import read
 from itertools import permutations
 
 # READ INPUT

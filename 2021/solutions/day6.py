@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/6"""
 
-from helper import read
+from aoc_util import read
 from collections import Counter
 
 # READ INPUT

@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/11"""
 
-from helper import read
+from aoc_util import read
 
 import copy
 

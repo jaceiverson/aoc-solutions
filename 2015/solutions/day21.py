@@ -1,7 +1,7 @@
 """https://adventofcode.com/2015/day/21"""
 
 from dataclasses import dataclass
-from helper import read, mytime
+from aoc_util import read, mytime
 import json
 
 # READ INPUT

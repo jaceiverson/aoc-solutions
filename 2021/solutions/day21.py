@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/21"""
 
-from helper import read
+from aoc_util import read
 from dataclasses import dataclass
 
 # READ INPUT

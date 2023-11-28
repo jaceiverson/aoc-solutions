@@ -1,6 +1,6 @@
 """https://adventofcode.com/2022/day/3"""
 
-from helper import read, chunks
+from aoc_util import read, chunks
 from string import ascii_lowercase as lower_a
 from string import ascii_uppercase as upper_a
 

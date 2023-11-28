@@ -1,6 +1,6 @@
 """https://adventofcode.com/2015/day/20"""
 
-from helper import read
+from aoc_util import read
 
 # READ INPUT
 data = read("./2015/inputs/20.txt").strip()

@@ -1,6 +1,6 @@
 """https://adventofcode.com/2020/day/1"""
 
-from helper import read
+from aoc_util import read
 
 import pandas as pd
 

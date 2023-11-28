@@ -2,7 +2,7 @@
 
 
 import itertools
-from helper import read
+from aoc_util import read
 
 # READ INPUT
 data = read("./2016/inputs/8.txt").strip().split("\n")

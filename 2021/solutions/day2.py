@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/2"""
 
-from helper import read
+from aoc_util import read
 
 route = read("./inputs/2.txt")
 route = route.strip().split("\n")

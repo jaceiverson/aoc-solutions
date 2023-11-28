@@ -1,6 +1,6 @@
 """https://adventofcode.com/2015/day/4"""
 
-from helper import mytime
+from aoc_util import mytime
 import hashlib
 
 data = "iwrupvqb"

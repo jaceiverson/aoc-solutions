@@ -1,6 +1,6 @@
 """https://adventofcode.com/2016/day/10"""
 
-from helper import read
+from aoc_util import read
 import math
 
 # READ INPUT

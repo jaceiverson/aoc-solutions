@@ -1,7 +1,7 @@
 """https://adventofcode.com/2015/day/15"""
 
 from itertools import product
-from helper import read
+from aoc_util import read
 
 # READ INPUT
 data = read("./2015/inputs/15.txt").strip().split("\n")

@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/1"""
 
-from helper import read
+from aoc_util import read
 
 sonar = read("./inputs/1.txt")
 sonar = sonar.strip().split("\n")

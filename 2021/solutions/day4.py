@@ -1,6 +1,6 @@
 """https://adventofcode.com/2021/day/4"""
 
-from helper import read
+from aoc_util import read
 
 
 def clean_board(path):
