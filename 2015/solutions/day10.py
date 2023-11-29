@@ -14,7 +14,6 @@ def extract_values(data):
     idx = 0
     temp = [data[0]]
     while idx < len(data) - 1:
-
         if data[idx] == data[idx + 1]:
             temp.append(data[idx + 1])
         else:

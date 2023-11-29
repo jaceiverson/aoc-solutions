@@ -76,6 +76,7 @@ def countPaths(currentCave, noEntry):
 part_1_answer = countPaths("start", [])
 print(f"PART 1: {part_1_answer}")
 
+
 # PART 2
 def part_2(currentCave, noEntry, visited_caves, lower_case_limit_reached=False):
     if currentCave == "end":

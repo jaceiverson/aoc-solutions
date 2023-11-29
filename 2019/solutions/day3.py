@@ -11,6 +11,7 @@ line_1, line_2 = data.strip().split("\n")
 line_1 = line_1.split(",")
 line_2 = line_2.split(",")
 
+
 # PART 1
 def get_line_points(p1, p2):
     """given 2 points, returns list of tuples of all points between"""
@@ -101,6 +102,7 @@ same_set.remove((0, 0))
 # our answer is the lowest combined sum (abs) of the x,y points
 part_1_answer = min(abs(x[0]) + abs(x[1]) for x in same_set)
 print(f"PART 1: {part_1_answer}")
+
 
 # PART 2
 # count steps

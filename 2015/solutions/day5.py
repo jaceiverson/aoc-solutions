@@ -8,6 +8,7 @@ data = read("./2015/inputs/5.txt").strip().split("\n")
 # data = read("./2015/inputs/5-test.txt")
 # PARSE INPUT
 
+
 # Part 1 RULES
 def check_nice(word: str):
     return check_vowel(word) and check_double_letter(word) and check_bad_strs(word)

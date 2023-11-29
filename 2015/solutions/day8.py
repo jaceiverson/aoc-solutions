@@ -7,6 +7,8 @@ import re
 data = read("./2015/inputs/8.txt").strip().split("\n")
 # TEST INPUT
 data = read("./2015/inputs/8-test.txt").strip().split("\n")
+
+
 # PARSE INPUT
 def get_chars(line: str, output: bool = True) -> int:
     if output:

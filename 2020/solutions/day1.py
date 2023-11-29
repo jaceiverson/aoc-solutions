@@ -6,7 +6,6 @@ import pandas as pd
 
 
 def one_a(df):
-
     for x in df[0]:
         for y in df[0]:
             if x != y:
@@ -15,7 +14,6 @@ def one_a(df):
 
 
 def one_b(df):
-
     for x in df[0]:
         for y in df[0]:
             for z in df[0]:

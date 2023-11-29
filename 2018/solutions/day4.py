@@ -12,6 +12,7 @@ data = read("./2018/inputs/4.txt")
 # PARSE INPUT
 data = data.strip().split("\n")
 
+
 # ATTEMPT 1
 def old_method():
     import pandas as pd
@@ -197,6 +198,7 @@ print(f"PART 1: {part_1_answer}")
 # INCORRECT -> 13662
 # INCORRECT -> 9773
 # CORRECT -> 21956
+
 
 # PART 2
 def part_2(data):

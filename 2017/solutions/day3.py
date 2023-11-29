@@ -18,6 +18,7 @@ grid = """
 43  44  45  46  47  48  49
 """
 
+
 # bottom right corner is odd numbers squared (1*1,3*3,5*5, ->)
 def find_distance(n: int):
     base = ceil(sqrt(n))

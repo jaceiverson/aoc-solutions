@@ -16,6 +16,7 @@ for r in rules:
     key, val = r.split(" -> ")
     rd[key] = val
 
+
 # PART 1
 def process_polymer(seed):
     to_insert = []

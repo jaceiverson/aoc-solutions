@@ -51,6 +51,7 @@ for l in data:
 part_1_answer = max(R.values())
 print(f"PART 1: {part_1_answer}")
 
+
 # PART 2
 def part_2(data):
     max_value = 0

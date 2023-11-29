@@ -12,6 +12,8 @@ data = data.strip().split("\n")
 # PART 1
 # key -> child, val -> parent
 planets = {x.split(")")[1]: x.split(")")[0] for x in data}
+
+
 # find indirects
 def orbits(point, map, count=0):
     parent = map.get(point)
@@ -24,6 +26,7 @@ def orbits(point, map, count=0):
 orbit_counts = sum(orbits(x, planets) for x in planets)
 part_1_answer = orbit_counts
 print(f"PART 1: {part_1_answer}")
+
 
 # PART 2
 def path(point, map, path_list=None):

@@ -26,14 +26,12 @@ def six_b(answers):
 
     answer_count = 0
     for x in answers:
-
         common_answer = True
         new_list = x.split("\n")
 
         y = new_list[0]
         for z in y:
             for i in new_list:
-
                 if z in i:
                     common_answer = True
                 else:

@@ -7,6 +7,7 @@ data = read("./2022/inputs/13.txt").strip().split("\n\n")
 # TEST INPUT
 # data = read("./2022/inputs/13-test.txt").strip().split("\n\n")
 
+
 # PARSE INPUT
 def compare(left, right) -> bool:
     for l, r in zip(left, right):

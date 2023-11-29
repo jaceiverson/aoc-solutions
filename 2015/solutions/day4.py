@@ -21,6 +21,7 @@ def part_1(input_str: str, iterations: int = 10_000_000) -> str:
 part_1_answer = part_1(data)
 print(f"PART 1: {part_1_answer}")
 
+
 # PART 2
 @mytime
 def part_2(input_str: str, iterations: int = 10_000_000) -> str:

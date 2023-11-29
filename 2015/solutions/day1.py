@@ -8,6 +8,7 @@ data = read("./2015/inputs/1.txt")
 # data = read("./2015/inputs/1-test.txt")
 # PARSE INPUT
 
+
 # PART 1
 def part_1(data):
     while True:
@@ -20,6 +21,7 @@ def part_1(data):
 cleaned_data = part_1(data)
 part_1_answer = cleaned_data.count("(") - cleaned_data.count(")")
 print(f"PART 1: {part_1_answer}")
+
 
 # PART 2
 def part_2(data):

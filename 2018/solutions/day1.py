@@ -23,6 +23,7 @@ for op in data:
 part_1_answer = freq
 print(f"PART 1: {part_1_answer}")
 
+
 # PART 2
 # works, but is slow
 def repeat_freq(freq_list=None, freq=0):

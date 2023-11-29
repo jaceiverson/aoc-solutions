@@ -43,7 +43,6 @@ def five_b():
 
 
 def row(letter_list, high, low):
-
     mid_point = high - ((high - low) / 2)
 
     if letter_list[0] == "F":
@@ -66,7 +65,6 @@ def row(letter_list, high, low):
 
 
 def seat(letter_list, high, low):
-
     mid_point = high - ((high - low) / 2)
 
     if letter_list[0] == "L":

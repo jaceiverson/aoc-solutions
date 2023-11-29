@@ -71,6 +71,7 @@ print(f"PART 1: {part_1_answer}")
 # to low: 870
 # i was forgetting to multiply the score by the last number called
 
+
 # PART 2
 def find_last_winning_score(order, boards):
     winning_boards = {}

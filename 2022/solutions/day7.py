@@ -8,6 +8,8 @@ from aoc_util import read
 data = read("./2022/inputs/7.txt").strip().split("\n")
 # TEST INPUT
 data = read("./2022/inputs/7-test.txt").strip().split("\n")
+
+
 # PARSE INPUT
 @dataclass
 class Folder:

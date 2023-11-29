@@ -6,6 +6,8 @@ from string import ascii_lowercase as alphabet
 
 # READ INPUT
 data = read("./2016/inputs/4.txt").strip().split("\n")
+
+
 # TEST INPUT
 # data = read("./2016/inputs/4-test.txt").strip().split("\n")
 # PARSE INPUT

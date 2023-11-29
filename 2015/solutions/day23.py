@@ -9,6 +9,7 @@ data = read("./2015/inputs/23.txt").strip().split("\n")
 # data = read("./2015/inputs/23-test.txt").strip().split("\n")
 # PARSE INPUT
 
+
 # PART 1
 def run_registers(a: int, b: int) -> int:
     idx = 0

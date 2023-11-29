@@ -15,6 +15,8 @@ KEYPAD_2 = [
     [None, "A", "B", "C", None],
     [None, None, "D", None, None],
 ]
+
+
 # PART 1
 def parse_code(code_list: list, position: list, keypad: list):
     CODE = ""

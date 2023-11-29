@@ -39,6 +39,7 @@ epsilon = "".join([str(x + 0) for x in epsilon])
 part_1_answer = int(gamma, 2) * int(epsilon, 2)
 print(f"PART 1: {part_1_answer}")
 
+
 # PART 2
 def filter(key, position, stack, above_half):
     # create the sub_stack

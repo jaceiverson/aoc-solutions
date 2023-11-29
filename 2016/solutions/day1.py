@@ -8,6 +8,7 @@ data = read("./2016/inputs/1.txt").strip().split(", ")
 # data = read("./2016/inputs/1-test2.txt").strip().split(", ")
 # PARSE INPUT
 
+
 # PART 1
 def part_1(data):
     location = [0, 0]
@@ -39,6 +40,7 @@ def check_in_list(locations: list, point: list):
 
 part_1_answer = part_1(data)
 print(f"PART 1: {part_1_answer}")
+
 
 # PART 2
 def part_2(data):

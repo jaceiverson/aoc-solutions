@@ -4,6 +4,8 @@ from aoc_util import read
 
 # READ INPUT
 data = read("./2015/inputs/2.txt").strip().split("\n")
+
+
 # TEST INPUT
 # data = read("./2015/inputs/2-test.txt")
 # PARSE INPUT

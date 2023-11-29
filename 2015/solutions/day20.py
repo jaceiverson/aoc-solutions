@@ -4,6 +4,8 @@ from aoc_util import read
 
 # READ INPUT
 data = read("./2015/inputs/20.txt").strip()
+
+
 # TEST INPUT
 # data = read("./2015/inputs/20-test.txt")
 # PARSE INPUT
@@ -14,6 +16,7 @@ def calculate_presents(house_number: int) -> int:
 
 
 present_count = int(data)
+
 
 # Brute force
 def visit_houses(present_count: int):

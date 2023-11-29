@@ -110,6 +110,7 @@ part_1_answer = fabric.count_overlap()
 print(f"PART 1: {part_1_answer}")
 # TO HIGH -> 143513
 
+
 # PART 2
 def find_unique_fabric(fabric):
     for line in data:

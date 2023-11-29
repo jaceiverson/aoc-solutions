@@ -9,6 +9,7 @@ data = read("./2015/inputs/11.txt").strip()
 # data = read("./2015/inputs/11-test.txt")
 # PARSE INPUT
 
+
 # FROM day 5
 def check_double_letter(word: str) -> bool:
     return any(c == word[idx] for idx, c in enumerate(word[:-1], 1))

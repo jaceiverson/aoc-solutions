@@ -102,14 +102,12 @@ def seven_b():
                 self.process(b, q * count)
 
     def find_total_bags(bag, quantity=1, total=0):
-
         contents = [row for row in r if row != [""] and bag in row[0]][0]
         print(f"{bag}, {quantity=}, {total=}")
         internal_bags_count = contents[2]
         total += internal_bags_count * quantity
 
         if contents[1] != "no other bags":
-
             bag_counts = extract_digit(contents[1])
 
             for idx, sub_bag in enumerate(clean(contents[1])):

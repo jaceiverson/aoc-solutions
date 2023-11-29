@@ -8,6 +8,7 @@ data = read("./2016/inputs/3.txt").strip().split("\n")
 # data = read("./2016/inputs/3-test.txt").strip().split("\n")
 # PARSE INPUT
 
+
 # PART 1
 def is_triangle(sides: str) -> bool:
     a, b, c = map(int, sides.strip().split())
@@ -16,6 +17,7 @@ def is_triangle(sides: str) -> bool:
 
 part_1_answer = sum(is_triangle(t) for t in data)
 print(f"PART 1: {part_1_answer}")
+
 
 # PART 2
 def part_2(data):

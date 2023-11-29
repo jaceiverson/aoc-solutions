@@ -55,6 +55,7 @@ for line in data:
 part_1_answer = ip_count
 print(f"PART 1: {part_1_answer}")
 
+
 # PART 2
 def validate_line_part_2(line: str) -> bool:
     middle = re.findall(r"\[(.*?)\]", line)

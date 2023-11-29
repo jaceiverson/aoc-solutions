@@ -41,6 +41,7 @@ def part_1(data: list[str]):
 part_1_answer = part_1(data)
 print(f"PART 1: {part_1_answer}")
 
+
 # PART 2
 # https://www.reddit.com/r/adventofcode/comments/7lms6p/2017_day_23_solutions/
 def part_2(data: list[str]):

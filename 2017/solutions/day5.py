@@ -8,6 +8,8 @@ data = read("./2017/inputs/5.txt").strip()
 # data = read("./2017/inputs/5-test.txt").strip()
 # PARSE INPUT
 data = list(map(int, data.split("\n")))
+
+
 # PART 1
 def part_1(data):
     position = 0
@@ -25,6 +27,7 @@ def part_1(data):
 
 part_1_answer = part_1(data.copy())
 print(f"PART 1: {part_1_answer}")
+
 
 # PART 2
 def part_2(data):

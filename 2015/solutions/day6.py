@@ -43,6 +43,7 @@ def bright_lights(grid: dict, x: int, y: int, action: str):
 
 grid = {}
 
+
 # PART 1 - takes a while
 def part_1(grid, data):
     for instruction in data:
@@ -55,6 +56,7 @@ def part_1(grid, data):
 
 
 print(f"PART 1: {part_1(data)}")
+
 
 # PART 2 -> slow
 def part_2(grid, data):

@@ -17,6 +17,7 @@ for row in data:
 part_1_answer = sum(checksum)
 print(f"PART 1: {part_1_answer}")
 
+
 # PART 2
 def find_divisible(row: list) -> int:
     for x in r:

@@ -37,6 +37,7 @@ for r_idx, row in enumerate(trees):
 part_1_answer = trees_seen
 print(f"PART 1: {part_1_answer}")
 
+
 # PART 2
 def see(sight_line: list, reverse: bool = False):
     if False not in sight_line:

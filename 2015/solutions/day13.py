@@ -5,6 +5,8 @@ from itertools import permutations
 
 # READ INPUT
 data = read("./2015/inputs/13.txt").strip().split("\n")
+
+
 # TEST INPUT
 # data = read("./2015/inputs/13-test.txt").strip().split("\n")
 # PARSE INPUT
