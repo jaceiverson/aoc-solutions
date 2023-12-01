@@ -5,7 +5,8 @@ from aoc_util import read
 # READ INPUT
 data = read("./2023/inputs/1.txt").strip().split("\n")
 # TEST INPUT
-# data = read("./2023/inputs/1-test-b.txt").strip().split("\n")
+# data = read("./2023/inputs/1-test-1.txt").strip().split("\n")
+# data = read("./2023/inputs/1-test-2.txt").strip().split("\n")
 # PARSE INPUT
 
 
@@ -32,6 +33,26 @@ def part_1(data):
 
         # print(f"{f}{s}")
         y += int(f"{f}{s}")
+    return y
+
+
+def part_1_refactored(data: list) -> int:
+    y = 0
+    # loop through all the data
+    for msg in data:
+        first = None
+        last = None
+        # now loop through all the indv chars
+        for chr in msg:
+            # the first numeric char is both the first and the current last
+            if first is None and chr.isnumeric():
+                first = chr
+                last = chr
+            # if we find another char it is now the last
+            elif chr.isnumeric():
+                last = chr
+        # convert to int and add to total
+        y += int(f"{first}{last}")
     return y
 
 
@@ -79,6 +100,7 @@ def part_2(data):
 
 
 print(f"PART 1: {part_1(data)}")
+print(f"PART 1 Refactored: {part_1_refactored(data)}")
 print(f"PART 2: {part_2(data)}")
 
 # bad: 53864
