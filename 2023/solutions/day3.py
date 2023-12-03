@@ -13,7 +13,9 @@ data = read("./2023/inputs/3.txt").strip().split("\n")
 # data = read("./2023/inputs/3-test-b.txt").strip().split("\n")
 # PARSE INPUT
 def get_next_number_index(line: str, start: int):
-    # print(f"NN: {line[start:]=}")
+    """
+    identifies the start of the next numeric value in the line
+    """
     for x in line[start:]:
         if x.isnumeric():
             return start
@@ -23,16 +25,15 @@ def get_next_number_index(line: str, start: int):
 
 
 def make_number_map(data: list):
+    """
+    creates our number map to ID numbers based on x,y coordinates
+    """
     map_ = {}
     for line_idx, line in enumerate(data):
         nums = re.findall(r"\d+", line)
-        # print(line_idx)
-        # print(nums)
-        # print(f"{line}\n")
         last_idx = 0
         # loop through all the numbers found
         for n in nums:
-            # print(f"LL: {line[last_idx:]=}")
             # get the index of the number accounting for duplicates
             start_idx = line[last_idx:].index(n) + last_idx
             # save the map
@@ -44,16 +45,13 @@ def make_number_map(data: list):
     return map_
 
 
+# TO BE USED LATER
 NUMBER_MAP = make_number_map(data)
-# print(NUMBER_MAP)
 
 
-def scan_area(x: int, y: int):
+def scan_area(x: int, y: int) -> list:
     """
-    part number touches a non . symbol
-
-    return true if is part number
-    return false if is not part number
+    scans area around symbols to return number coordinates that surround it
     """
     numbers = []
     for x_scan in range(-1, 2):
@@ -66,7 +64,11 @@ def scan_area(x: int, y: int):
     return numbers
 
 
-def extract_numbers(data: list, nums: list):
+def extract_numbers(nums: list) -> list:
+    """
+    from a list of number coordinates, find the actual numbers
+    return a list of all the numbers (converted to ints)
+    """
     cleaned_numbers = []
     last_y = None
     last_x = None
@@ -89,7 +91,7 @@ def part_1(data: list):
             if not chr.isnumeric() and chr != ".":
                 numbers = scan_area(line_idx, idx_)
                 # print(numbers)
-                clean_numbers = extract_numbers(data, numbers)
+                clean_numbers = extract_numbers(numbers)
                 for c in clean_numbers:
                     sum_ += c
     return sum_
@@ -107,7 +109,7 @@ def part_2(data: list):
         for idx_, chr in enumerate(line):
             if chr == "*":
                 numbers = scan_area(line_idx, idx_)
-                clean_numbers = extract_numbers(data, numbers)
+                clean_numbers = extract_numbers(numbers)
                 if len(clean_numbers) == 2:
                     sum_ += clean_numbers[0] * clean_numbers[1]
     return sum_
