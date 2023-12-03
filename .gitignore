@@ -1,6 +1,7 @@
 # python caches
 __pycache__/
 .DS_Store
+.ruff_cache
 # env
 aoc-env/
 venv/
