@@ -1,4 +1,4 @@
-seeds: 79 10 14 1 55 10 13 1
+seeds: 79 1 14 1 55 1 13 1
 
 seed-to-soil map:
 50 98 2

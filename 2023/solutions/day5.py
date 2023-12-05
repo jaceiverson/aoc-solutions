@@ -7,8 +7,8 @@ from rich import print
 # READ INPUT
 data = read("./2023/inputs/5.txt").strip().split("\n\n")
 # TEST INPUT
-data = read("./2023/inputs/5-test-e.txt").strip().split("\n\n")
-data = read("./2023/inputs/5-test.txt").strip().split("\n\n")
+# data = read("./2023/inputs/5-test-e.txt").strip().split("\n\n")
+#  data = read("./2023/inputs/5-test.txt").strip().split("\n\n")
 # PARSE INPUT
 
 
@@ -108,13 +108,8 @@ Part 2 looping over the instructions and maping all positions instead of looping
 """
 
 
-def get_seed_ranges_2(seeds: list):
-    m = {}
-    for s, r in chunks(seeds, 2):
-        m[(s, s + r - 1)]
-
-
 def de_dupe_s(s: list):
+    s = [x for x in s if x[0] is not None]
     s.sort()
     new_s = []
     idx_ = 0
@@ -140,6 +135,10 @@ def de_dupe_s(s: list):
     return new_s
 
 
+def output(n: int):
+    print(f"{n[0]:,d}, {n[1]:,d}")
+
+
 def part_2_reverse(data: list):
     start_seeds, map_ = get_map(data)
     print(map_)
@@ -148,55 +147,72 @@ def part_2_reverse(data: list):
     s = chunks(start_seeds, 2)
     s = [[x[0], x[0] + x[1] - 1] for x in s]
     s = de_dupe_s(s)
+    # [output(x) for x in s]
     print(s)
 
-    # loop through the maping steps instead of the seeds
+    # loop through the mapping steps instead of the seeds
+    # loops through the steps seed -> soil -> fert -> water -> etc.
     for step_idx, step in enumerate(map_):
         print(step_idx)
-        new_seeds = []
+        # loops through the ranges in teh step
+        # k is the range k[0] lower and k[1] upper
+        # v is the value it gets changed to
+        # for each step, there are values that are mapped, that only need to be considered next step
+        new_values = []
         for k, v in step.items():
-            if s:
-                s = de_dupe_s(s)
-                for sg in s:  # sg = seed_group
-                    s_min = sg[0]
-                    s_max = sg[1]
-                    if k[0] < s_min and k[1] < s_min or k[1] > s_max and k[0] > s_max:
-                        # nothing happens
-                        pass
-                    elif k[0] < s_min:
-                        if s_max > k[1] >= s_min:
-                            # the map found values on the bottom end
-                            # need to change s[0] to now be k[1] for future checks
-                            sg[0] = k[1] + 1
-                            new_seeds.append([s_min + v, k[1] + v])
-                        elif k[1] >= sg[1]:
-                            # everything in this seed group is now just +=v
-                            sg[0] += v
-                            sg[1] += v
-                    elif k[0] >= s_min:
-                        if k[1] >= s_max:
-                            # the map found values on the top end
-                            # need to change s[0] to now be k[1] for future checks
-                            sg[1] = k[0] - 1
-                            new_seeds.append([k[0] + v, s_max + v])
-                        elif k[1] < s_max:
-                            # the map found values in the middle
-                            # move the bounds for sg and create 3 new groups
-                            # one for the bottom (stays in s)
-                            # of the the middle (moves on to new seeds)
-                            # one for the top (stays in s)
-                            sg[1] = k[0] - 1
-                            s.append([k[1] + 1, s_max])
-                            new_seeds.append([k[0] + v, k[1] + v])
-        if new_seeds:
-            s += new_seeds
+            # remove any duplicate or overlapping seed ranges
+            s = de_dupe_s(s)
 
+            for sg in s:  # sg = seed_group
+                s_min = sg[0]
+                s_max = sg[1]
+                if k[1] < s_min or k[0] > s_max:
+                    # nothing happens
+                    pass
+                elif k[0] < s_min:
+                    if s_max > k[1] >= s_min:
+                        # the map found values on the bottom end
+                        # need to change s[0] to now be k[1] for future checks
+                        sg[0] = k[1] + 1
+                        new_values.append(
+                            [s_min + v, k[1] + v]
+                        )  # need to have a new list for these so the same rule isn't applied again
+                    elif k[1] >= sg[1]:
+                        # everything in this seed group is now just +=v
+                        new_values.append([sg[0] + v, sg[1] + v])
+                        sg[0] = None
+                        sg[1] = None
+                elif k[0] >= s_min:
+                    if k[1] >= s_max:
+                        # the map found values on the top end
+                        # need to change s[0] to now be k[1] for future checks
+                        sg[1] = k[0] - 1
+                        new_values.append([k[0] + v, s_max + v])
+                    elif k[1] < s_max:
+                        # the map found values in the middle
+                        # move the bounds for sg and create 3 new groups
+                        # one for the bottom (stays in s)
+                        # of the the middle (moves on to new seeds)
+                        # one for the top (stays in s)
+                        sg[1] = k[0] - 1  # change base (lower) - not range, not changed
+                        s.append(
+                            [k[1] + 1, s_max]
+                        )  # add (upper) - not in range,not changed
+                        new_values.append(
+                            [k[0] + v, k[1] + v]
+                        )  # add (mid) - in range, changed by v
+
+        if new_values:
+            s += new_values
+
+        s = de_dupe_s(s)
         print(s)
 
-    s.sort()
-    print(s)
-    return min(x for x in sum(s, []) if x > 0)
+    return min(sum(s, []))
 
 
 print(f"PART 2: {part_2_reverse(data)}")
-# TO LOW: 6295169
+# TO LOW: 6_295_169
+# TO HIGH: 276_864_123
+# TO HIGH: 1_037_813_664
+# Removed de-dup function: 651_227_070
