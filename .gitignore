@@ -13,3 +13,5 @@ venv/
 # CL command
 script.txt
 setup_cli.py
+# Ignore files that end with a digit before the .txt extension
+*[0-9].txt
