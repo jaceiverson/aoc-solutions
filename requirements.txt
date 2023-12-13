@@ -1,2 +1,2 @@
-git+https://github.com/jaceiverson/aoc-util.git@example-input-add
+git+https://github.com/jaceiverson/aoc-util.git
 pre-commit
