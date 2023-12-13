@@ -92,8 +92,10 @@ set_avg_time = sum(p1st) / len(p1st)
 print(f"PART 1: {p1}")
 print(f"PART 1: {p1s}")
 print(
-    f"PART 1 -> Sets are {p1_avg_time/set_avg_time:.4f} times faster and {p1_avg_time-set_avg_time:.0f} total ns faster\n"
+    f"PART 1 -> Sets are {p1_avg_time/set_avg_time:.4f} times faster "
+    f"and {p1_avg_time-set_avg_time:.0f} total ns faster\n"
 )
+# PART 1 -> Sets are 2.2796 times faster and 688552 total ns faster
 # print(f"PART 1: {part_1_one_liner(data)}")
 # print(f"PART 1: {part_1_gpt_(data)}")
 
@@ -140,5 +142,7 @@ set_avg_time_2 = sum(p2st) / len(p2st)
 print(f"PART 2: {p2}")
 print(f"PART 2: {p2s}")
 print(
-    f"PART 2 -> Sets are {p2_avg_time/set_avg_time_2:.4f} times faster and {p2_avg_time-set_avg_time_2} total ns faster"
+    f"PART 2 -> Sets are {p2_avg_time/set_avg_time_2:.4f} times faster "
+    f"and {p2_avg_time-set_avg_time_2:.0f} total ns faster"
 )
+# PART 2 -> Sets are 2.2181 times faster and 703242 total ns faster
