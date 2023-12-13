@@ -1,6 +1,7 @@
 """https://adventofcode.com/{year}/day/{day}"""
 
 from aoc_util import read
+from rich import print
 
 # MAIN INPUT
 data = read("./{year}/inputs/{day}.txt").strip().split("\n")
