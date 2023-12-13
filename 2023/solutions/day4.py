@@ -1,7 +1,8 @@
 """https://adventofcode.com/2023/day/4"""
 
 from aoc_util import read
-from aoc_util.helper import mytime
+from aoc_util.helper import mytime, avgtime
+from rich import print
 
 # READ INPUT
 data = read("./2023/inputs/4.txt").strip().split("\n")
@@ -11,7 +12,7 @@ data = read("./2023/inputs/4-test-e.txt").strip().split("\n")
 
 
 # PART 1
-@mytime
+@avgtime(run_times=10)
 def part_1(data):
     sum_ = 0
     # each card is a line
@@ -29,7 +30,7 @@ def part_1(data):
     return sum_
 
 
-@mytime
+@avgtime(run_times=10)
 def part_1_sets(data):
     new_sum = 0
     # each card is a line
@@ -42,7 +43,7 @@ def part_1_sets(data):
     return new_sum
 
 
-@mytime
+@avgtime(run_times=10)
 def part_1_one_liner(data):
     return sum(
         2
@@ -64,9 +65,30 @@ def part_1_one_liner(data):
     )
 
 
+@avgtime(run_times=10)
+def part_1_gpt_(data):
+    return sum(
+        2
+        ** (
+            len(
+                set(line.split(": ")[1].split(" | ")[0].split())
+                & set(line.split(": ")[1].split(" | ")[1].split())
+            )
+            - 1
+        )
+        for line in data
+        if len(
+            set(line.split(": ")[1].split(" | ")[0].split())
+            & set(line.split(": ")[1].split(" | ")[1].split())
+        )
+        > 0
+    )
+
+
 print(f"PART 1: {part_1(data)}")
 print(f"PART 1: {part_1_sets(data)}")
 print(f"PART 1: {part_1_one_liner(data)}")
+print(f"PART 1: {part_1_gpt_(data)}")
 
 
 # PART 2
