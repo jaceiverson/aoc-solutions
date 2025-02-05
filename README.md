@@ -5,7 +5,7 @@ challenges. This was created using my <a href=https://github.com/jaceiverson/aoc
 # AOC Star Summary
 | Year   |   Stars |   Completion % |
 |--------|---------|----------------|
-| [2024] |       2 |            4   |
+| [2024] |       5 |           10   |
 | [2023] |      22 |           44   |
 | [2022] |      21 |           42   |
 | [2021] |      25 |           50   |
@@ -15,5 +15,5 @@ challenges. This was created using my <a href=https://github.com/jaceiverson/aoc
 | [2017] |      15 |           30   |
 | [2016] |      20 |           40   |
 | [2015] |      32 |           64   |
-| TOTAL  |     174 |           34.8 |
+| TOTAL  |     177 |           35.4 |
 
